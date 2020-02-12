@@ -18,7 +18,7 @@ TITLE_FONT = None
 DEFAULT_FONT = None
 
 
-# Make window
+# Start pygame
 pygame.init()
 screen = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
 pygame.display.set_caption(TITLE)
@@ -29,6 +29,7 @@ clock = pygame.time.Clock()
 font_sm = pygame.font.Font(DEFAULT_FONT, 24)
 font_md = pygame.font.Font(DEFAULT_FONT, 32)
 font_xl = pygame.font.Font(TITLE_FONT, 96)
+
 
 
 # Scenes
@@ -54,11 +55,8 @@ class TitleScene(Scene):
         super().__init__()
 
     def process_input(self, events, pressed_keys):
-        for event in events:
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    self.next_scene = PlayScene()
-    
+        pass
+
     def update(self):
         pass
     
@@ -76,21 +74,13 @@ class PlayScene(Scene):
         super().__init__()
 
     def process_input(self, events, pressed_keys):
-        for event in events:
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    self.next_scene = EndScene()
-    
+        pass
+
     def update(self):
         pass
     
     def render(self):
-        screen.fill(BLACK)
-        text = font_xl.render("Playing", 1, WHITE)
-        rect = text.get_rect()
-        rect.centerx = SCREEN_WIDTH // 2
-        rect.centery = SCREEN_HEIGHT // 2
-        screen.blit(text, rect)
+        pass
 
 
 class EndScene(Scene):
@@ -98,21 +88,13 @@ class EndScene(Scene):
         super().__init__()
 
     def process_input(self, events, pressed_keys):
-        for event in events:
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    self.next_scene = TitleScene()
-    
+        pass
+
     def update(self):
         pass
     
     def render(self):
-        screen.fill(BLACK)
-        text = font_xl.render("Game Over", 1, WHITE)
-        rect = text.get_rect()
-        rect.centerx = SCREEN_WIDTH // 2
-        rect.centery = SCREEN_HEIGHT // 2
-        screen.blit(text, rect)
+        pass
 
 
 # Main game class
@@ -122,10 +104,8 @@ class Game():
 
     def is_quit_event(self, event, pressed_keys):
         x_out = event.type == pygame.QUIT
-        ctrl = pressed_keys[pygame.K_LCTRL] or pressed_keys[pygame.K_RCTRL]
-        q = pressed_keys[pygame.K_q]
 
-        return x_out or (ctrl and q)
+        return x_out
         
     def run(self): 
         while self.active_scene != None:

@@ -1,34 +1,25 @@
 # Imports
 import pygame
+from settings import *
+from utilities import *
 
 
-# Settings
-''' window '''
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
-TITLE = "Name of Game"
-FPS = 60
-
-''' colors '''
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-
-''' fonts '''
-TITLE_FONT = None
-DEFAULT_FONT = None
-
-
-# Make window
-pygame.init()
-screen = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
-pygame.display.set_caption(TITLE)
-clock = pygame.time.Clock()
-
-
-# Load assets
-font_sm = pygame.font.Font(DEFAULT_FONT, 24)
-font_md = pygame.font.Font(DEFAULT_FONT, 32)
-font_xl = pygame.font.Font(TITLE_FONT, 96)
+# Helper functions
+def start_pygame():
+    global screen, clock
+    
+    pygame.init()
+    screen = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
+    pygame.display.set_caption(TITLE)
+    clock = pygame.time.Clock()
+    
+def load_assets():
+    global font_sm, font_md, font_lg, font_xl
+    
+    font_sm = pygame.font.Font(DEFAULT_FONT, 24)
+    font_md = pygame.font.Font(DEFAULT_FONT, 32)
+    font_md = pygame.font.Font(DEFAULT_FONT, 64)
+    font_xl = pygame.font.Font(TITLE_FONT, 96)
 
 
 # Scenes
@@ -152,6 +143,9 @@ class Game():
 
 # Let's do this!
 if __name__ == "__main__":
+    start_pygame()
+    load_assets()
+    
     g = Game()
     g.run()
     pygame.quit()
