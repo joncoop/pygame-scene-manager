@@ -1,0 +1,15 @@
+Sources for media used in this project:
+
+Images
+some_image.png (https://example.com)
+another_image.png (https://example.com)
+
+Sounds
+some_sound.ogg (https://example.com)
+another_sound.ogg (https://example.com)
+
+Music
+some_music.mp3 (https://example.com)
+
+Fonts
+some_font.otf (https://example.com)
